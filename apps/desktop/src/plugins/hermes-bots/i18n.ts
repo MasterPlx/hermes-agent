@@ -665,7 +665,7 @@ const ptBR: BotsMessages = {
     filterHint:
       'Existem trabalhos agendados neste perfil, mas nenhum é marcado para este bot. Nomeie uma tarefa "[bot:<name>] ..." para mostrá-la aqui, ou veja-a em Cron abaixo.',
     needsRosterFirst: 'Este bot precisa aparecer na lista primeiro.',
-    staleNotice: 'Não foi possível atualizar as tarefas agendadas. A mostrar a última lista que tínhamos.',
+    staleNotice: 'Não foi possível atualizar as tarefas agendadas. Exibindo a última lista disponível.',
     readFailure: 'A lista pode ainda estar lá — isto foi uma falha de leitura, não uma exclusão.',
     createDesc: bot =>
       `Uma tarefa recorrente executada por ${bot} conforme uma agenda. As execuções ficam no histórico do chat desse bot.`,
