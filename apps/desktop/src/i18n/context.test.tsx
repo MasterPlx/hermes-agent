@@ -209,6 +209,28 @@ describe('I18nProvider', () => {
     expect(screen.getByTestId('locale').textContent).toBe('ja')
   })
 
+  it('persists Brazilian Portuguese as pt-BR', async () => {
+    const saveConfig = vi.fn().mockResolvedValue({ ok: true })
+
+    const configClient: I18nConfigClient = {
+      getConfig: vi.fn().mockResolvedValue({ display: { language: 'en', skin: 'mono' } }),
+      saveConfig
+    }
+
+    render(
+      <I18nProvider configClient={configClient}>
+        <LanguageProbe target="pt-BR" />
+      </I18nProvider>
+    )
+
+    await waitFor(() => expect(screen.getByTestId('loading').textContent).toBe('false'))
+    fireEvent.click(screen.getByRole('button', { name: 'switch' }))
+
+    await waitFor(() => expect(saveConfig).toHaveBeenCalledTimes(1))
+    expect(saveConfig).toHaveBeenCalledWith({ display: { language: 'pt-BR', skin: 'mono' } })
+    expect(screen.getByTestId('locale').textContent).toBe('pt-BR')
+  })
+
   it('applies RTL direction for Arabic and restores LTR on switch back', async () => {
     render(
       <I18nProvider configClient={null} initialLocale="ar">

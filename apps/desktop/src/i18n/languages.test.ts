@@ -22,6 +22,10 @@ describe('desktop i18n languages', () => {
     expect(normalizeLocale('RU-RU')).toBe('ru')
     expect(normalizeLocale(' ru_ru ')).toBe('ru')
     expect(normalizeLocale('Русский')).toBe('ru')
+
+    for (const alias of ['pt', 'pt-br', 'pt_br', 'Portuguese', 'Brazilian Portuguese', 'Português (Brasil)']) {
+      expect(normalizeLocale(alias)).toBe('pt-BR')
+    }
   })
 
   it('falls back to English for empty or unsupported values', () => {
@@ -51,5 +55,6 @@ describe('desktop i18n languages', () => {
     expect(localeConfigValue('ja')).toBe('ja')
     expect(localeConfigValue('ar')).toBe('ar')
     expect(localeConfigValue('ru')).toBe('ru')
+    expect(localeConfigValue('pt-BR')).toBe('pt-BR')
   })
 })

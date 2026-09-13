@@ -24,25 +24,28 @@ const en = BOTS_LOCALES.en
 const ja = BOTS_LOCALES.ja
 const zh = BOTS_LOCALES.zh
 const zhHant = BOTS_LOCALES['zh-hant']
+const ptBR = BOTS_LOCALES['pt-BR']
 
 describe('BOTS_LOCALES', () => {
   it('covers the English key tree in every shipped locale', () => {
     expect(ja).toBeDefined()
     expect(zh).toBeDefined()
     expect(zhHant).toBeDefined()
+    expect(ptBR).toBeDefined()
 
     const enPaths = leafEntries(en).map(([path]) => path)
 
     expect(leafEntries(ja).map(([path]) => path)).toEqual(enPaths)
     expect(leafEntries(zh).map(([path]) => path)).toEqual(enPaths)
     expect(leafEntries(zhHant).map(([path]) => path)).toEqual(enPaths)
+    expect(leafEntries(ptBR).map(([path]) => path)).toEqual(enPaths)
   })
 
   it('translates user-visible chrome instead of echoing English', () => {
     const samples = ['roster.emptyTitle', 'bot.newTitle', 'group.manageTitle', 'tools.skillsHub'] as const
     const enByPath = Object.fromEntries(leafEntries(en))
 
-    for (const locale of [ja, zh, zhHant]) {
+    for (const locale of [ja, zh, zhHant, ptBR]) {
       const byPath = Object.fromEntries(leafEntries(locale))
 
       for (const path of samples) {
@@ -55,7 +58,7 @@ describe('BOTS_LOCALES', () => {
     const sentinel = 'QUERY_SENTINEL'
     const gateway = 'GATEWAY_SENTINEL'
 
-    for (const locale of [en, ja, zh, zhHant]) {
+    for (const locale of [en, ja, zh, zhHant, ptBR]) {
       const byPath = Object.fromEntries(leafEntries(locale))
       const queryFn = byPath['roster.noMatchQuery'] as (query: string) => string
       const bothFn = byPath['roster.noMatchQueryOn'] as (query: string, gateway: string) => string

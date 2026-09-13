@@ -75,6 +75,26 @@ def test_catalog_placeholders_match_english(lang: str):
 # ---------------------------------------------------------------------------
 
 
+@pytest.mark.parametrize("alias", ["pt-BR", "pt_br", "brazilian", "Brazilian Portuguese"])
+def test_brazilian_portuguese_resolves_distinctly(alias: str):
+    assert i18n._normalize_lang(alias) == "pt-BR"
+
+
+@pytest.mark.parametrize("alias", ["pt", "pt-PT", "Portuguese"])
+def test_portuguese_defaults_remain_pt_pt(alias: str):
+    assert i18n._normalize_lang(alias) == "pt"
+
+
+def test_brazilian_catalog_uses_brazilian_wording():
+    assert i18n.t("gateway.config_save_failed", lang="pt-BR", error="x") == (
+        "⚠️ Não foi possível salvar a configuração: x"
+    )
+    assert i18n.t("gateway.config_save_failed", lang="pt", error="x") == (
+        "⚠️ Não foi possível guardar a configuração: x"
+    )
+
+
+
 
 
 

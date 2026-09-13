@@ -24,6 +24,13 @@ describe('desktop i18n runtime translator', () => {
     expect(translateNow('assistant.tool.statusRecovered')).toBe('已恢复')
   })
 
+  it('returns Brazilian Portuguese copy for pt-BR', () => {
+    setRuntimeI18nLocale('pt-BR')
+
+    expect(translateNow('boot.ready')).toBe('O Hermes Desktop está pronto')
+    expect(translateNow('common.save')).toBe('Salvar')
+  })
+
   it('passes arguments to function translations', () => {
     expect(translateNow('notifications.updateReadyMessage', 2)).toBe('2 new changes available.')
   })

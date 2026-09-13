@@ -18,14 +18,14 @@ logger = logging.getLogger(__name__)
 
 SUPPORTED_LANGUAGES: tuple[str, ...] = (
     "en", "zh", "zh-hant", "ja", "de", "es", "fr", "tr", "uk",
-    "af", "ko", "it", "ga", "pt", "ru", "hu", "ar",
+    "af", "ko", "it", "ga", "pt", "pt-BR", "ru", "hu", "ar",
 )
 DEFAULT_LANGUAGE = "en"
 
 # Natural aliases so "chinese" / "zh-CN" / "jp" hit the right catalog instead of
 # silently falling back to English. Bare "chinese" defaults to Simplified;
-# Taiwan/HK/Macau tags route to the distinct Traditional catalog. pt-br shares
-# the pt catalog (no separate br one).
+# Taiwan/HK/Macau tags route to the distinct Traditional catalog. Brazilian
+# Portuguese has its own catalog while bare Portuguese remains European.
 _LANGUAGE_ALIASES: dict[str, str] = {
     "english": "en", "en-us": "en", "en-gb": "en",
     "chinese": "zh", "mandarin": "zh", "zh-cn": "zh", "zh-hans": "zh", "zh-sg": "zh",
@@ -42,7 +42,8 @@ _LANGUAGE_ALIASES: dict[str, str] = {
     "italian": "it", "italiano": "it", "it-it": "it", "it-ch": "it",
     "irish": "ga", "gaeilge": "ga", "ga-ie": "ga",
     "portuguese": "pt", "português": "pt", "portugues": "pt",
-    "pt-pt": "pt", "pt-br": "pt", "brazilian": "pt", "brasileiro": "pt",
+    "pt-pt": "pt", "pt-br": "pt-BR", "pt_br": "pt-BR",
+    "brazilian": "pt-BR", "brazilian portuguese": "pt-BR", "brasileiro": "pt-BR",
     "russian": "ru", "русский": "ru", "ru-ru": "ru",
     "hungarian": "hu", "magyar": "hu", "hu-hu": "hu",
     "arabic": "ar", "العربية": "ar",
