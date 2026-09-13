@@ -41,6 +41,7 @@ jobs:
         working-directory: apps/desktop
         env:
           CSC_IDENTITY_AUTO_DISCOVERY: "false"
+          GH_TOKEN: ${{ github.token }}
         run: npm run dist:win:nsis -- --publish never
 
       - name: Upload Windows installer
