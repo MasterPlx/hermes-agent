@@ -125,9 +125,9 @@ export const ptBR: Translations = {
       title: 'Não foi possível iniciar o Hermes.',
       description:
         'O gateway em segundo plano não foi iniciado. Tente uma das opções de recuperação abaixo. Nenhuma delas exclui suas conversas ou configurações.',
-      remoteTitle: 'É necessária a entrada remota do gateway',
+      remoteTitle: 'É necessário entrar no gateway remoto',
       remoteDescription:
-        'Sua sessão de gateway remoto expirou. Assine novamente para reconectar. Nada aqui apaga suas conversas ou configurações.',
+        'Sua sessão no gateway remoto expirou. Entre novamente para reconectar. Nada aqui apaga suas conversas ou configurações.',
       retry: 'Repetir',
       repairInstall: 'Reparar instalação',
       useLocalGateway: "Usar o 'gateway' local",
@@ -144,14 +144,14 @@ export const ptBR: Translations = {
       cloudDownDescription:
         'O agente de nuvem gerenciado por Nous para o qual este gateway se conecta está retornando um erro no servidor. Não pode ser reiniciado daqui — verifique o seu estado, mude para o gateway local ou obtenha suporte.',
       cloudDownHint:
-        'Os botões abaixo abrem o Portal Nous (status de instalação e controles) e nossa Discord para suporte.',
+        'Os botões abaixo abrem o Portal Nous (status e controles da instância) e nosso Discord para suporte.',
       cloudDownCheckPortal: 'Verificar o estado do Portal',
-      cloudDownDiscord: 'Obter ajuda na Discord',
+      cloudDownDiscord: 'Obter ajuda no Discord',
       hideRecentLogs: 'Esconder os registros recentes',
       showRecentLogs: 'Mostrar os registros recentes',
-      signedInTitle: 'Assinado em',
+      signedInTitle: 'Login concluído',
       signedInMessage: 'Reconectando ao gateway remoto...',
-      signInIncompleteTitle: 'Inclusão incompleta',
+      signInIncompleteTitle: 'Login incompleto',
       signInIncompleteMessage: 'A janela de autenticação foi fechada antes da autenticação terminar.',
       signInFailed: 'Falha ao entrar',
       signInToRemoteGateway: "Entrar no 'gateway' remoto",
@@ -981,7 +981,7 @@ export const ptBR: Translations = {
       timezone: 'Identificador de fuso horário da IANA. Em branco use o fuso horário do sistema.',
       browser: {
         useRealProfile:
-          'A navegação local usa os seus logins reais. O Hermes copia o perfil de seu navegador padrão (cookies, logins, preferências) em um instantâneo gerenciado e o conduz com seu Chromium embalado — seu perfil ao vivo nunca é aberto diretamente, e a cópia é atualizada a partir dele em cada execução. Também permite que o agente abra uma sessão local de perfil real a pedido, mesmo quando uma infraestrutura de navegador na nuvem está configurada. Apenas navegadores Chromium (Chrome, Edge, Brave, Brave Origin, Chromium) são suportados; um padrão não Chromium falha com uma mensagem clara. Desligado por padrão.'
+          'A navegação local usa seus logins reais. O Hermes copia o perfil do navegador padrão (cookies, logins e preferências) para um instantâneo gerenciado e o controla com o Chromium incluído — seu perfil real nunca é aberto diretamente, e a cópia é atualizada a partir dele em cada execução. Também permite que o agente abra uma sessão local com o perfil real quando solicitado, mesmo se um backend de navegador na nuvem estiver configurado. Apenas navegadores Chromium (Chrome, Edge, Brave, Brave Origin, Chromium) são suportados; um padrão não Chromium falha com uma mensagem clara. Desligado por padrão.'
       },
       agent: {
         imageInputMode: 'Controla como os anexos de imagem são enviados para o modelo.',
@@ -1372,7 +1372,7 @@ export const ptBR: Translations = {
       sshButtonsHint: 'Salvar aplica as alterações na próxima inicialização. Conectar refaz a conexão agora.',
       sshReachable: (host, platform) => `Acessível: ${host} (${platform}) — Hermes encontrado`,
       sshIncompleteHost: 'Digite uma máquina SSH antes de se conectar.',
-      sshErrUnreachable: 'Não foi possível alcançar aquela máquina sobre o SSH. Verifique a máquina, porta e sua rede.',
+      sshErrUnreachable: 'Não foi possível acessar essa máquina via SSH. Verifique a máquina, a porta e a rede.',
       sshErrAuth:
         'A autenticação do SSH falhou. Carregue sua chave no ssh-agent (ssh-add) ou defina um IdentityFile em ~/.ssh/config — O Hermes executa ssh não-interativamente.',
       sshErrHostKey:
@@ -1839,7 +1839,7 @@ export const ptBR: Translations = {
     skillsLoadFailed: 'Não foi possível carregar as habilidades',
     toolsetsRefreshFailed: 'Falha ao atualizar os conjuntos de ferramentas',
     skillEnabled: 'Habilidade habilitada',
-    skillDisabled: 'Habilidade desactivada',
+    skillDisabled: 'Habilidade desativada',
     toolsetEnabled: 'O conjunto de ferramentas está ativo',
     toolsetDisabled: 'Toolset desabilitado',
     appliesToNewSessions: name => `${name} aplica-se a novas sessões.`,
@@ -2430,7 +2430,7 @@ export const ptBR: Translations = {
     loading: 'Carregando hooks...',
     loadFailed: 'Os Webhooks não conseguiram carregar',
     subscriptions: (count: number) => `Assinaturas (${count})`,
-    hint: 'A assinatura muda a recarga quando o receptor está em execução. As assinaturas desactivadas rejeitam os eventos recebidos.',
+    hint: 'As alterações de assinatura são recarregadas enquanto o receptor está em execução. Assinaturas desativadas rejeitam eventos recebidos.',
     empty: 'Ainda não há assinaturas do Webhook.',
     disabledTitle: 'Receptor Webhook desativado',
     disabledBody:
